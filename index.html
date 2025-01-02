@@ -1,0 +1,101 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pneumonia Detection</title>
+</head>
+<body>
+    <h1>Pneumonia Detection</h1>
+    <p>Upload a chest X-ray image to predict if it's normal, bacterial, or viral pneumonia.</p>
+
+    <!-- Image upload form -->
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Upload and Predict</button>
+    </form>
+
+    <!-- Prediction using CSV file -->
+    <h2>Predict using Clinical Data CSV</h2>
+    <form action="/predict_csv" method="post">
+        <input type="text" name="image_name" placeholder="Enter Image Name" required>
+        <button type="submit">Predict from CSV</button>
+    </form>
+
+    <!-- Display prediction result -->
+    <div id="result">
+        <p id="prediction"></p>
+    </div>
+
+    <script>
+        // Handle the form submission asynchronously
+        const form = document.querySelector('form');
+        form.onsubmit = async function(event) {
+            event.preventDefault();
+            const formData = new FormData(form);
+            const response = await fetch('/predict', {
+                method: 'POST',
+                body: formData
+            });
+            const result = await response.json();
+            if (result.prediction) {
+                document.getElementById('prediction').innerText = 'Prediction: ' + result.prediction;
+            } else {
+                document.getElementById('prediction').innerText = 'Error: ' + result.error;
+            }
+        };
+    </script>
+</body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pneumonia Detection</title>
+</head>
+<body>
+    <h1>Pneumonia Detection</h1>
+    <p>Upload a chest X-ray image to predict if it's normal, bacterial, or viral pneumonia.</p>
+
+    <!-- Image upload form -->
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Upload and Predict</button>
+    </form>
+
+    <!-- Prediction using CSV file -->
+    <h2>Predict using Clinical Data CSV</h2>
+    <form action="/predict_csv" method="post">
+        <input type="text" name="image_name" placeholder="Enter Image Name" required>
+        <button type="submit">Predict from CSV</button>
+    </form>
+
+    <!-- Display prediction result -->
+    <div id="result">
+        <p id="prediction"></p>
+    </div>
+
+    <script>
+        // Handle the form submission asynchronously
+        const form = document.querySelector('form');
+        form.onsubmit = async function(event) {
+            event.preventDefault();
+            const formData = new FormData(form);
+            const response = await fetch('/predict', {
+                method: 'POST',
+                body: formData
+            });
+            const result = await response.json();
+            if (result.prediction) {
+                document.getElementById('prediction').innerText = 'Prediction: ' + result.prediction;
+            } else {
+                document.getElementById('prediction').innerText = 'Error: ' + result.error;
+            }
+        };
+    </script>
+</body>
+</html>
+>>>>>>> 63690de (Initial Commit)
