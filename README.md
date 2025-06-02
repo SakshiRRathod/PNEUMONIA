@@ -3,6 +3,29 @@
 
 This project is designed to detect and classify pneumonia from medical images using deep learning models. It features a **Flask** backend that interacts with the **React** frontend, allowing users to upload chest X-ray images for analysis. The backend processes these images using a model and returns the classification results. The frontend allows users to interact with the system easily.
 
+## Features
+
+Pneumonia Detection: Classifies chest X-ray images to identify signs of pneumonia.
+
+Transfer Learning: Utilizes pre-trained CNN models for efficient and accurate predictions.
+
+Web Interface: User-friendly interface built with Flask for easy image uploads and result visualization.
+
+
+## Project Structure
+```bash
+PNEUMOAI/
+├── app.py                 # Main Flask application
+├── templates/
+│   └── index.html         # HTML template for the web interface
+├── static/
+│   ├── css/               # CSS files
+│   └── images/            # Sample images
+├── models/                # Pre-trained CNN models
+├── data/                  # Dataset (if included)
+├── requirements.txt       # Python dependencies
+└── README.md              # Project documentation
+ ```
 ## Prerequisites
 
 Before you start, ensure the following are installed on your system:
